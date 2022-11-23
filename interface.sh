@@ -11,4 +11,7 @@ then
 elif [ $choix = "sub" ]
 then
 	read -p "Quelle sub?: " sub
+elif [ $choix = "patho" ]
+then
+	read -p "Quel patho" patho
 fi
