@@ -46,4 +46,5 @@ then
 elif [ $choix = "patho" ]
 then
 	read -p "Quel patho" patho
+	ariadb -u bkoj --password=bkoj medicament  -e "SELECT DISTINCT CIS_bdpm.denomination FROM CIS_bdpm JOIN CIS_HAS_SMR on CIS_bdpm.Code_CIS = CIS_HAS_SMR.Code_CIS JOIN CIS_CIP_bdpm ON CIS_bdpm.Code_CIS=CIS_CIP_bdpm.Code_CIS WHERE CIS_HAS_SMR.Libelle LIKE '%$patho%' OR CIS_CIP_bdpm.libelle LIKE '%$patho%' ORDER BY denomination;"
 fi
