@@ -42,6 +42,7 @@ then
 elif [ $choix = "sub" ]
 then
 	read -p "Quelle sub?: " sub
+	mariadb -u bkoj --password=bkoj medicament  -e "SELECT DISTINCT CIS_bdpm.denomination FROM CIS_bdpm JOIN CIS_COMPO_bdpm on CIS_bdpm.Code_CIS = CIS_COMPO_bdpm.Code_CIS WHERE CIS_COMPO_bdpm.denomination LIKE '%$sub%';"
 elif [ $choix = "patho" ]
 then
 	read -p "Quel patho" patho
